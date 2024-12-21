@@ -1,0 +1,16 @@
+@use 'normalize';
+@use 'fonts';
+@use 'variables';
+@use 'utils';
+@use 'globals';
+
+body {
+
+  p {
+    color: red;
+    font-family: 'Kumbh_Sans', sans-serif;
+    font-weight: 600;
+  }
+
+  background: green;
+}
