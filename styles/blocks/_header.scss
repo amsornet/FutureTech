@@ -5,6 +5,10 @@
     padding-block: rem(20);
     text-align: center;
     border-bottom: var(--border);
+
+    @include mobile {
+      padding-block: rem(14);
+    }
   }
 
 
@@ -24,6 +28,14 @@
     @include mobile-above {
       display: contents;
     }
+
+    @include mobile {
+      &:not(.is-active) {
+        @include hide;
+
+        translate: 100%;
+      }
+    }
   }
 
   &__menu {
@@ -31,6 +43,10 @@
       display: flex;
       align-items: center;
       column-gap: rem(16);
+
+      @include laptop {
+        column-gap: rem(16);
+      }
     }
 
     &-link {
@@ -50,7 +66,6 @@
         border-radius: rem(10);
         pointer-events: none;
       }
-
     }
   }
 }
