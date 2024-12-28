@@ -780,6 +780,63 @@ button[aria-label]::before {
   color: var(--color-accent);
 }
 
+.team {
+  --personImagesSize: 3.75rem;
+  display: flex;
+  padding: 0.625rem;
+  background-color: var(--color-dark-10);
+  border-radius: 6.25rem;
+}
+.team__person {
+  width: var(--personImagesSize);
+  background-color: var(--color-dark-15);
+  border: 0.125rem solid var(--color-dark-40);
+  border-radius: 50%;
+}
+.team__person:not(:first-child) {
+  margin-left: calc(var(--personImagesSize) / 4 * -1);
+}
+
+.resources-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  row-gap: 1.875rem;
+}
+.resources-preview__body {
+  display: grid;
+  row-gap: 0.875rem;
+}
+
+.advantage-card {
+  display: grid;
+  row-gap: 1.875rem;
+}
+.advantage-card__link {
+  --circleSize: 3.25rem;
+  --circlemarginLeft: 1.25rem;
+  position: relative;
+  display: grid;
+  row-gap: 0.25rem;
+  padding-right: calc(var(--circleSize) + var(--circlemarginLeft));
+}
+.advantage-card__link::after {
+  content: "";
+  width: var(--circleSize);
+  height: var(--circleSize);
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  right: clamp(1.125rem, 0.137254902rem + 4.0522875817vw, 5rem);
+  background: url("../../icons/arrow-top-right_black.svg") center no-repeat var(--color-accent);
+  border-radius: 50%;
+}
+.advantage-card__details {
+  font-size: clamp(0.875rem, 0.7794117647rem + 0.3921568627vw, 1.25rem);
+  font-family: var(--font-family-accent);
+}
+
 .hero__main {
   display: grid;
   grid-template-columns: 60% auto;
@@ -812,6 +869,21 @@ button[aria-label]::before {
   padding-bottom: 5rem;
   border-left: var(--border);
   background: url("../../images/resources-preview/bg.png") 0 0/cover no-repeat;
+}
+.hero__advantages-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.hero__advantages-item {
+  --paddingX: 5rem;
+  padding-block: 3.125rem;
+}
+.hero__advantages-item:not(:first-child) {
+  padding-left: var(--paddingX);
+}
+.hero__advantages-item:not(:last-child) {
+  padding-right: var(--paddingX);
+  border-right: var(--border);
 }
 
 .header {
