@@ -818,4 +818,8 @@ button[aria-label]::before {
   display: none !important;
 }
 
+.footer {
+  display: none !important;
+}
+
 /*# sourceMappingURL=main.css.map */
