@@ -8,6 +8,12 @@
   background-color: var(--color-dark-10);
   border-radius: rem(100);
 
+  @include laptop {
+    --personImagesSize: #{rem(50)};
+
+    padding: rem(8);
+  }
+
   &__person {
     width: var(--personImagesSize);
     background-color: var(--color-dark-15);
@@ -16,6 +22,10 @@
 
     &:not(:first-child) {
       margin-left: calc(var(--personImagesSize) / 4 * -1);
+    }
+
+    @include laptop {
+      border-width: rem(1);
     }
 
 

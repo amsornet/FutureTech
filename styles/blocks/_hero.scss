@@ -2,11 +2,13 @@
 
 .hero {
   &__main {
-    display: grid;
-    grid-template-columns: 60% auto;
-    grid-template-areas:
+    @include tablet-above {
+      display: grid;
+      grid-template-columns: 60% auto;
+      grid-template-areas:
       'body resources-preview'
       'metrics resources-preview';
+    }
   }
 
   &__body {
@@ -14,6 +16,17 @@
     padding-top: rem(150);
     padding-right: rem(50);
     padding-bottom: rem(100);
+
+    @include laptop {
+      padding-top: rem(100);
+      padding-right: rem(40);
+    }
+
+    @include tablet {
+      padding-right: 0;
+      padding-top: rem(40);
+      padding-bottom: rem(30);
+    }
   }
 
   &__subtitle {
@@ -25,17 +38,39 @@
 
     &:not(:last-child) {
       margin-bottom: rem(30);
+
+      @include mobile {
+        margin-bottom: rem(14);
+      }
     }
   }
 
   &__title {
     &:not(:last-child) {
       margin-bottom: rem(20);
+
+      @include mobile {
+        margin-bottom: rem(10);
+      }
     }
+
+
   }
 
   &__metrics {
     grid-area: metrics;
+
+    @include tablet-above {
+      border-top: var(--border);
+    }
+
+    @include tablet {
+      &::before {
+        content: '';
+        width: 100vw;
+        right: calc(var(--container-padding-x) * -1);
+      }
+    }
   }
 
   &__resources-preview {
@@ -45,9 +80,15 @@
     border-left: var(--border);
     background:
             url("../../images/resources-preview/bg.png") 0 0 / cover no-repeat;
+
+    @include laptop {
+      padding-left: rem(50);
+      padding-bottom: rem(50);
+    }
   }
 
   &__advantages {
+    border-block: var(--border);
     &-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -65,6 +106,12 @@
       &:not(:last-child) {
         padding-right: var(--paddingX);
         border-right: var(--border);
+      }
+
+      @include laptop {
+        --paddingX: #{rem(50)};
+
+        padding-block: rem(40);
       }
     }
 
